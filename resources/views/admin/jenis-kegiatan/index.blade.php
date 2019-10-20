@@ -50,6 +50,9 @@
                         <td><a href="{{url('admin/jenis-kegiatan-edit/'.$jenis_kegiatan->id)}}"
                                class="btn btn-outline btn-primary"><span class="fa fa-edit"></span>
                             </a>
+                            <a href="{{url('admin/jenis-kegiatan-hapus/'.$jenis_kegiatan->id)}}"
+                                class="btn btn-outline btn-danger" onclick="return confirm('Are you sure?')"><span class="fa fa-trash"></span>
+                             </a>
                         </td>
                     </tr>
                     <?php $no++; endforeach; ?>

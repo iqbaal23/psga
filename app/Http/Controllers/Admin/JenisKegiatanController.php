@@ -52,4 +52,13 @@ class JenisKegiatanController extends Controller
         DB::table('jenis_kegiatan')->where('id', '=', $id)->update($data);
         return redirect('admin/jenis-kegiatan-index');
     }
+
+    public function destroy($id)
+    {
+        DB::table('jenis_kegiatan')->where('id', '=', $id)->delete();
+
+
+        Session::flash('flash_message', 'Hapus Data Berhasil');
+        return redirect('admin/jenis-kegiatan-index');
+    }
 }

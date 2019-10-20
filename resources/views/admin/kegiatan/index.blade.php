@@ -53,7 +53,7 @@
                                class="btn btn-outline btn-warning"><span class="fa fa-eye"></span>
                             </a>
                             <a href="{{url('admin/kegiatan-hapus/'.$kegiatan->id)}}"
-                               class="btn btn-outline btn-danger"><span class="fa fa-trash"></span>
+                               class="btn btn-outline btn-danger" onclick="return confirm('Are you sure?')"><span class="fa fa-trash"></span>
                             </a>
                         </td>
                     </tr>

@@ -69,6 +69,7 @@ Route::group(['middleware' => ['web'], 'prefix' => 'admin'], function () {
     Route::get('/jenis-kegiatan-index', 'Admin\JenisKegiatanController@index')->name('jenis-kegiatan-index');
     Route::get('/jenis-kegiatan-form/', 'Admin\JenisKegiatanController@tambahform')->name('jenis-kegiatan-form');
     Route::get('/jenis-kegiatan-coba/', 'Admin\JenisKegiatanController@coba');
+    Route::get('/jenis-kegiatan-hapus/{id}', 'Admin\JenisKegiatanController@destroy');
 
     Route::post('/jeniskegiatan', 'Admin\JenisKegiatanController@store');
     Route::get('/jenis-kegiatan-edit/{id}', 'Admin\JenisKegiatanController@editform');
