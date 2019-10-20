@@ -122,8 +122,47 @@
                                 </div>
                             </div>
                         </form>
-                    @else 
-                        <p>zzz</p>
+                        @else
+                        <form action="{{url('tambah-pendaftaran-lainnya')}}" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="_token" value="<?= csrf_token() ?>" class="form-control"/>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-field">
+                                        <input type="hidden" name="id_kegiatan" class="form-control" value="{{$id}}">
+                                        <input type="text" name="nama" class="form-control" id="nama">
+                                        <label for="nama">Nama</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-field">
+                                        <input type="email" name="email" class="form-control" id="email">
+                                        <label for="email">Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-field">
+                                        <select name="status" class="form-control" id="status">
+                                            <option disabled selected>- Pilih Status -</option>
+                                            <option value="Mahasiswa">Mahasiswa</option>
+                                            <option value="Pelajar">Pelajar</option>
+                                            <option value="Umum">Umum</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-field">
+                                        <input type="number" name="no_hp" class="form-control" id="no_hp">
+                                        <label for="no_hp">No Hp</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <button type="submit" name="submit"
+                                            class="waves-effect waves-light btn brand-bg
+                                            pull-right mt-30">Daftarkan
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     @endif
                 </div>
             </div>

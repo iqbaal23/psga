@@ -29,6 +29,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/lomba-daftar/{id}', 'FrontendController@lombaDaftarview');
     Route::post('/tambah-pendaftaran-lomba', 'FrontendController@tambahpendaftaran');
+    Route::post('/tambah-pendaftaran-lainnya', 'FrontendController@tambahpendaftaranlainnya');
 
     Route::get('/about', 'FrontendController@about');
     Route::get('/pendaftaran', 'FrontendController@pendaftaran');
