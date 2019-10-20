@@ -45,7 +45,7 @@
                                class="btn btn-outline btn-primary"><span class="fa fa-edit"></span>
                             </a>
                             <a href="{{url('admin/jurnal-hapus/'.$jurnal->id)}}"
-                                class="btn btn-outline btn-primary"><span class="fa fa-trash"></span>
+                                class="btn btn-outline btn-primary" onclick="return confirm('Are you sure?')"><span class="fa fa-trash"></span>
                             </a>
                         </td>
                     </tr>
