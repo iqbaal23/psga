@@ -32,5 +32,51 @@
                 </div>
             </div>
         </div>
+        <div class="col-lg-12">
+            <div class="panel">
+                <header class="panel-heading">
+                    <h3 class="panel-title">Data Peserta</h3>
+                </header>
+                <div class="panel-body">
+                    @if($peserta_list->count() > 0)
+                    <table class="table table-hover dataTable table-striped w-full" data-plugin="dataTable">
+                        <thead>
+                        <tr>
+                            <th width="10%">No</th>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>No HP</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>No HP</th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        <?php
+                        $no = 1;
+                        foreach ($peserta_list as $peserta): ?>
+                        <tr>
+                            <td><?= $no ?></td>
+                            <td><?= $peserta->nama ?></td>
+                            <td><?= $peserta->email ?></td>
+                            <td><?= $peserta->status ?></td>
+                            <td><?= $peserta->no_hp ?></td>
+                        </tr>
+                        <?php $no++; endforeach; ?>
+                        </tbody>
+                    </table>
+                    @else
+                        <p>Tidak Ada Peserta</p>
+                    @endif
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

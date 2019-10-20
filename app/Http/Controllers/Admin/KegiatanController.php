@@ -66,7 +66,18 @@ class KegiatanController extends Controller
     public function view($id)
     {
         $data = DB::table('kegiatan')->where('id', '=', $id)->first();
-        return view('admin/kegiatan/view', compact('data'));
+        $kategori = DB::table('kegiatan')
+                    ->join('jenis_kegiatan', 'kegiatan.id_jenis_kegiatan', '=', 'jenis_kegiatan.id')
+                    ->select('kategori')
+                    ->where('kegiatan.id', '=', $id)
+                    ->get()
+                    ->first();
+        if($kategori->kategori == 'lomba'){
+            $peserta_list = \App\Pendaftaran::all();
+        } else {
+            $peserta_list = \App\PendaftaranLainnya::all();
+        }
+        return view('admin/kegiatan/view', compact('data', 'peserta_list', 'kategori'));
     }
 
     public function editform($id)
@@ -120,7 +131,7 @@ class KegiatanController extends Controller
     public function destroy($id)
     {
         DB::table('kegiatan')->where('id', '=', $id)->delete();
-       
+
 
         Session::flash('flash_message', 'Hapus Data Berhasil');
         return redirect('admin/kegiatan-index');
