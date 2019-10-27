@@ -35,9 +35,9 @@
                 <div class="panel-body">
                     <h2 class="panel-title"><?= $data->judul_cerita ?></h2>
                     <a href="{{asset('public/cerita-lomba/'.$data->cerita_lomba)}}"class="btn btn-outline btn-success"><span class="fa fa-download"></span> Download Cerita</a><br><br>
-                    <a href="{{asset('public/surat-pengantar/'.$data->pengantar)}}"class="btn btn-outline btn-success"><span class="fa fa-download"></span> Download Pengantar</a><br>
+                    {{-- <a href="{{asset('public/surat-pengantar/'.$data->pengantar)}}"class="btn btn-outline btn-success"><span class="fa fa-download"></span> Download Pengantar</a><br> --}}
                     <br>
-                    <a href="{{url('admin/listpendaftaran')}}" class="btn btn-outline btn-warning"><span class="fa fa-backward"></span> Kembali</a>
+                    {{-- <a href="{{url('admin/listpendaftaran')}}" class="btn btn-outline btn-warning"><span class="fa fa-backward"></span> Kembali</a> --}}
                 </div>
             </div>
         </div>

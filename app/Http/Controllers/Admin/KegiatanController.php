@@ -72,8 +72,8 @@ class KegiatanController extends Controller
                     ->where('kegiatan.id', '=', $id)
                     ->get()
                     ->first();
-        if($kategori->kategori == 'lomba'){
-            $peserta_list = \App\Pendaftaran::all();
+        if($kategori->kategori == 'Lomba'){
+            $peserta_list = DB::table('pendaftaran')->where('id_kegiatan', '=', $data->id)->get();
         } else {
             // $peserta_list = \App\PendaftaranLainnya::all();
             $peserta_list = DB::table('pendaftaran_seminar')->where('id_kegiatan', '=', $data->id)->get();

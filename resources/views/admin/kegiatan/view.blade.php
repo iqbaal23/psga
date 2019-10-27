@@ -37,9 +37,56 @@
                 <header class="panel-heading">
                     <h3 class="panel-title">Data Peserta</h3>
                 </header>
-                <div class="panel-body">
+                <div class="panel-body table-responsive">
                     @if($kategori->kategori == 'Lomba')
-
+                        @if($peserta_list->count() > 0)
+                            <table class="table table-hover dataTable table-striped w-full" data-plugin="dataTable">
+                                <thead>
+                                <tr>
+                                    <th width="10%">No</th>
+                                    <th>Nisn</th>
+                                    <th>Nama</th>
+                                    <th>Asal Sekolah</th>
+                                    <th>Jenis Kelamin</th>
+                                    <th>Umur</th>
+                                    <th>Alamat</th>
+                                    <th>Aksi</th>
+                                </tr>
+                                </thead>
+                                <tfoot>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nisn</th>
+                                    <th>Nama</th>
+                                    <th>Asal Sekolah</th>
+                                    <th>Jenis Kelamin</th>
+                                    <th>Umur</th>
+                                    <th>Alamat</th>
+                                    <th>Aksi</th>
+                                </tr>
+                                </tfoot>
+                                <tbody>
+                                <?php
+                                $no = 1;
+                                foreach ($peserta_list as $peserta): ?>
+                                <tr>
+                                    <td><?= $no ?></td>
+                                    <td><?= $peserta->nisn ?></td>
+                                    <td><?= $peserta->nama ?></td>
+                                    <td><?= $peserta->asal_sekolah ?></td>
+                                    <td><?= $peserta->jenis_kelamin ?></td>
+                                    <td><?= $peserta->umur ?></td>
+                                    <td><?= $peserta->alamat ?></td>
+                                    <td><a href="{{url('admin/pendaftaran-view/'.$peserta->id)}}"
+                                        class="btn btn-outline btn-warning"><span class="fa fa-eye"></span>
+                                     </a></td>
+                                </tr>
+                                <?php $no++; endforeach; ?>
+                                </tbody>
+                            </table>
+                        @else
+                            <p>Tidak Ada Peserta</p>
+                        @endif
                     @else
                         @if($peserta_list->count() > 0)
                             <table class="table table-hover dataTable table-striped w-full" data-plugin="dataTable">
