@@ -53,13 +53,34 @@
                                     </span>
                         @endif
                     </div>
+
                     <div class="form-group">
                         <label for="password-confirm" class="sr-only">{{ __('Confirm Password') }}</label>
-                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Confirm Password">
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Confirm Password">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+
+                    <div class="form-group"  style="text-align:center;">
+                        <script type="text/javascript">DrawBotBoot()</script>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block"  onclick="(ValidBotBoot());">Sign up</button>
                 </form>
             </div>
         </div>
     </div>
 @endsection
+<script type="text/javascript">
+    var a = Math.ceil(Math.random() * 10);
+    var b = Math.ceil(Math.random() * 10);
+    var c = a + b
+    function DrawBotBoot()
+    {
+        document.write("<label style='font-size:18px'>Berapa jumlah "+ a + " + " + b +" ? </label>");
+        document.write("<input id='BotBootInput' type='text' maxlength='2' size='2' class='form-control' placeholder='Masukkan jawaban anda!' autocomplete='off'/>");
+    }
+    function ValidBotBoot(){
+        var d = document.getElementById('BotBootInput').value;
+        if (d == c) return document.getElementById('login-form').submit();;
+        return alert('Captcha Salah!');
+
+    }
+</script>

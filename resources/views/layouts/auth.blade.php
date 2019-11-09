@@ -36,6 +36,8 @@
     <script src="{{asset('public/global/vendor/html5shiv/html5shiv.min.js')}}"></script>
     <![endif]-->
 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <!--[if lt IE 10]>
     <script src="{{asset('public/global/vendor/media-match/media.match.min.js')}}"></script>
     <script src="{{asset('public/global/vendor/respond/respond.min.js')}}"></script>
