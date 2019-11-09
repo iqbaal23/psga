@@ -26,7 +26,7 @@
                     @include('layouts.flash_error')
 
                     @if($kategori == 'Lomba')
-                        <form action="{{url('tambah-pendaftaran-lomba')}}" method="POST" enctype="multipart/form-data">
+                        <form id="form" action="{{url('tambah-pendaftaran-lomba')}}" method="POST" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="<?= csrf_token() ?>" class="form-control"/>
 
                             <div class="row">
@@ -123,13 +123,13 @@
                                     <button type="submit" name="submit"
                                             class="waves-effect waves-light btn brand-bg
                                             pull-right mt-30"
-                                            onclick="(ValidBotBoot());">Daftarkan
+                                            onclick="(ValidBotBoot(event));">Daftarkan
                                     </button>
                                 </div>
                             </div>
                         </form>
                         @else
-                        <form action="{{url('tambah-pendaftaran-lainnya')}}" method="POST" enctype="multipart/form-data">
+                        <form id="form" action="{{url('tambah-pendaftaran-lainnya')}}" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="<?= csrf_token() ?>" class="form-control"/>
                             <div class="row">
                                 <div class="col-md-6">
@@ -171,7 +171,7 @@
                                     <button type="submit" name="submit"
                                             class="waves-effect waves-light btn brand-bg
                                             pull-right mt-30"
-                                            onclick="(ValidBotBoot());">Daftarkan
+                                            onclick="(ValidBotBoot(event));">Daftarkan
                                     </button>
                                 </div>
                             </div>
@@ -192,10 +192,15 @@
         document.write("<label style='font-size:18px'>Berapa jumlah "+ a + " + " + b +" ? </label>");
         document.write("<input id='BotBootInput' type='text' maxlength='2' size='2' class='form-control' placeholder='Masukkan jawaban anda!' autocomplete='off'/>");
     }
-    function ValidBotBoot(){
+    function ValidBotBoot(e){
         var d = document.getElementById('BotBootInput').value;
-        if (d == c) return document.getElementById('login-form').submit();;
-        return alert('Captcha Salah!');
+        if (d == c){
+            return document.getElementById('form').submit();
+        } else{
+            e.preventDefault();
+            alert('Captcha Salah!');
+            return false;
+        }
 
     }
 </script>
